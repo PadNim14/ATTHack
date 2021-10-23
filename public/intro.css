@@ -30,6 +30,10 @@ body{
     
 }
 
+.context button {
+    color: "#FDBB30";
+}
+
 .context h1{
     text-align: center;
     color: #FDBB30;
@@ -148,6 +152,8 @@ body{
     background: -webkit-linear-gradient(to left, #FDBB30, #BEC0C2);  
     width: 100%;
     height:100vh;
+    
+   
 }
 
 .circles{
