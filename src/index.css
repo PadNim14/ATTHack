@@ -50,6 +50,18 @@ body {
   align-items: center;
 }
 
+.PPcounter {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gold;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
 /* QUESTION/TIMER/LEFT SECTION */
 .question-section {
   width: 100%;
