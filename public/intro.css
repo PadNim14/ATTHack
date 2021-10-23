@@ -1,0 +1,10 @@
+#Top {
+    text-align: center;
+    font-size: 16px;
+    right: 10px;
+}
+
+#grad {
+    background: rgb(0,45,98);
+    background: linear-gradient(117deg, rgba(0,45,98,1) 19%, rgba(253,187,48,1) 73%);
+}
