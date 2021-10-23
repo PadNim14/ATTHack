@@ -82,7 +82,7 @@ export default function App() {
 		<div className='app'>
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
-	  		<div className='timer-text'>{useEffect}</div>
+	  		<div className='timer-text'>{setSeconds}</div>
 			{showScore ? (
 				<div className='score-section'>You scored {score} out of {questions.length}</div>
 			) : (
