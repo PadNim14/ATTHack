@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function App() {
+export default function Quiz() {
 
 	const questions = [
 		{
@@ -45,44 +45,63 @@ export default function App() {
 	const [showScore, setShowScore] = useState(false);	
 
 	const [score, setScore] = useState(0);
-	const [seconds, setSeconds] = useState(10);
-	const useEffect =() => {
-		if(seconds > 0) {
-			setTimeout(() => setSeconds(seconds - 1), 1000);
-		}
-		else {
-			setSeconds("Time's Up!");
-		}
+	const [counter, setCounter] = React.useState(5);
+	const id = React.useRef(null);
+	const [PP, setPP] = useState(0);
+
+	const clear=()=>{
+		window.clearInterval(id.current);
 	}
-//   React.useEffect(() => {
-//     if (seconds > 0) {
-//       setTimeout(() => setSeconds(seconds - 1), 1000);
-//     } else {
-//       setSeconds('BOOOOM!');
-//     }
-//   });
+	
+
+	React.useEffect(() => {
+		const timer =
+		  counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+		  if(counter === 0)
+		  {
+			const nextQuestion = currentQuestion + 1;
+			if(nextQuestion < questions.length){
+				setCurrentQuestion(nextQuestion);
+				setCounter(counter + 5);
+			}
+			else{
+				setShowScore(true);
+			}
+			
+		  }
+		 
+		return () => clearInterval(timer);
+
+		
+
+
+	  }, [counter]);
+
 
 	const handleAnswerButtonClick = (isCorrect) => {
 		if(isCorrect){
 			setScore(score + 1);
+			setPP(PP + 1);
+			setCounter(5);
 		}
+		
 		const nextQuestion = currentQuestion + 1;
 		if(nextQuestion < questions.length){
 			setCurrentQuestion(nextQuestion);
+			setCounter(5);
 		}
 		else{
 			setShowScore(true);
+			setCounter(5);
 		}
-		// setCurrentQuestion(nextQuestion);
+		//setCounter(5);
 	};
 	
-	// <button onClick={() => handleAnswerButtonClick()}>{answerOption.answerText}</button>
-
+	console.log(questions[currentQuestion]);
 	return (
 		<div className='app'>
-			{/* HINT: replace "false" with logic to display the 
-      score when the user has answered all the questions */}
-	  		<div className='timer-text'>{setSeconds}</div>
+			<div className='PPcounter'><p> Current PP: {PP}</p></div>
+	  		<div className='timer-text'>Time Left {counter}</div>
 			{showScore ? (
 				<div className='score-section'>You scored {score} out of {questions.length}</div>
 			) : (
@@ -91,6 +110,7 @@ export default function App() {
 						<div className='question-count'>
 							<span>{currentQuestion + 1}</span>/{questions.length}
 						</div>
+						
 						<div className='question-text'>{questions[currentQuestion].questionText}</div>
 					</div>
 					<div className='answer-section'>
