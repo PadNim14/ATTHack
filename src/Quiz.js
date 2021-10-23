@@ -45,6 +45,22 @@ export default function App() {
 	const [showScore, setShowScore] = useState(false);	
 
 	const [score, setScore] = useState(0);
+	const [seconds, setSeconds] = useState(10);
+	const useEffect =() => {
+		if(seconds > 0) {
+			setTimeout(() => setSeconds(seconds - 1), 1000);
+		}
+		else {
+			setSeconds("Time's Up!");
+		}
+	}
+//   React.useEffect(() => {
+//     if (seconds > 0) {
+//       setTimeout(() => setSeconds(seconds - 1), 1000);
+//     } else {
+//       setSeconds('BOOOOM!');
+//     }
+//   });
 
 	const handleAnswerButtonClick = (isCorrect) => {
 		if(isCorrect){
@@ -66,6 +82,7 @@ export default function App() {
 		<div className='app'>
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
+	  		<div className='timer-text'>{useEffect}</div>
 			{showScore ? (
 				<div className='score-section'>You scored {score} out of {questions.length}</div>
 			) : (
