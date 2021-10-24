@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Quiz() {
+function Quiz() {
 
 	const questions = [
 		{
@@ -92,7 +92,7 @@ export default function Quiz() {
 		}
 		else{
 			setShowScore(true);
-			setCounter(5);
+			setCounter(0);
 		}
 		//setCounter(5);
 	};
@@ -124,3 +124,4 @@ export default function Quiz() {
 		</div>
 	);
 }
+export default Quiz;
