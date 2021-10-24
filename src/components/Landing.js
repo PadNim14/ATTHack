@@ -1,5 +1,6 @@
 import React from "react";
-import './intro.css'
+import Button from "./Button";
+
 class Landing extends React.Component {
   render() {
     return (
@@ -24,14 +25,7 @@ class Landing extends React.Component {
               {}
             </div>
           </form>
-          <br />
-          <br />
-          <p>by Vaibhava, Sidd, Ishaan, Nimal</p>
-          <br />
-           <form action="www.google.com">
-            <input type="submit" defaultValue="Press" />
-          </form>
-          <button onclick="www.google.com">Let's go</button> 
+          {}
         </div>
         <div className="area">
           <ul className="circles">
@@ -47,6 +41,10 @@ class Landing extends React.Component {
             <li />
           </ul>
         </div>
+        <br />
+        <p>by Vaibhava, Sidd, Ishaan, Nimal</p>
+        <br />
+        {/* <Button>Click</Button> */}
       </div>
     );
   }

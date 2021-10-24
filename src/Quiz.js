@@ -53,7 +53,11 @@ function Quiz() {
 		window.clearInterval(id.current);
 	}
 	
+	function sleep(ms){
+		return new Promise(resolve => setTimeout(resolve, ms));
+	}
 
+	
 	React.useEffect(() => {
 		const timer =
 		  counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
@@ -67,6 +71,7 @@ function Quiz() {
 			else{
 				setShowScore(true);
 			}
+			sleep(2000);
 			
 		  }
 		 
