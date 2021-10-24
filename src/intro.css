@@ -34,8 +34,10 @@ body{
     
 }
 
-.context button {
+.button {
     color: "#FDBB30";
+    align-content:center;
+    padding: 50px;
 }
 
 .context h1{

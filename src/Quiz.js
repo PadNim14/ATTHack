@@ -1,51 +1,58 @@
 import React, { useState } from 'react';
+// import './intro.html';
 
 function Quiz() {
 
 	const questions = [
 		{
-			questionText: 'What is the capital of France?',
+			questionText: ' What year were the Indiana Pacers founded?'
+			,
 			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
+				{ answerText: '1967', isCorrect: true },
+				{ answerText: '1985', isCorrect: false },
+				{ answerText: '1958', isCorrect: false },
+				{ answerText: '1976', isCorrect: false },
 			],
 		},
 		{
-			questionText: 'Who is CEO of Tesla?',
+			questionText: 'Who once played for both the Indiana Pacers and the San Antonio Spurs in the same game?',
 			answerOptions: [
-				{ answerText: 'Jeff Bezos', isCorrect: false },
-				{ answerText: 'Elon Musk', isCorrect: true },
-				{ answerText: 'Bill Gates', isCorrect: false },
-				{ answerText: 'Tony Stark', isCorrect: false },
+				{ answerText: 'George Hill', isCorrect: false },
+				{ answerText: 'Stephen Jackson', isCorrect: false },
+				{ answerText: 'Kawhi Leonard', isCorrect: false },
+				{ answerText: 'Bob Netolicky', isCorrect: true },
 			],
 		},
 		{
-			questionText: 'The iPhone was created by which company?',
+			questionText: 'Which Pacer was known as the "Knick Killer"?',
 			answerOptions: [
-				{ answerText: 'Apple', isCorrect: true },
-				{ answerText: 'Intel', isCorrect: false },
-				{ answerText: 'Amazon', isCorrect: false },
-				{ answerText: 'Microsoft', isCorrect: false },
+				{ answerText: 'George McGinnis', isCorrect: false },
+				{ answerText: 'Alex English', isCorrect: false },
+				{ answerText: 'Chris Mullin', isCorrect: false },
+				{ answerText: 'Reggie Miller', isCorrect: true },
 			],
 		},
 		{
-			questionText: 'How many Harry Potter books are there?',
+			questionText: 'Which Pacers coach has the highest winning percentage?',
 			answerOptions: [
-				{ answerText: '1', isCorrect: false },
-				{ answerText: '4', isCorrect: false },
-				{ answerText: '6', isCorrect: false },
-				{ answerText: '7', isCorrect: true },
+				{ answerText: 'Larry Bird', isCorrect: true },
+				{ answerText: 'Bobby Leonard', isCorrect: false },
+				{ answerText: 'Larry Brown', isCorrect: false },
+				{ answerText: 'Frank Vogel', isCorrect: false },
 			],
 		},
 	];
 	const [currentQuestion, setCurrentQuestion] = useState(0);
-
+	
 	const [showScore, setShowScore] = useState(false);	
-
+	const [name, setName] = useState('')
+	
+	const handleInput = () => {
+		console.log(name);
+	};
+	// <input onChange={event => setTitle(event.target.value)} />
 	const [score, setScore] = useState(0);
-	const [counter, setCounter] = React.useState(5);
+	const [counter, setCounter] = React.useState(10);
 	const id = React.useRef(null);
 	const [PP, setPP] = useState(0);
 
@@ -56,6 +63,7 @@ function Quiz() {
 	function sleep(ms){
 		return new Promise(resolve => setTimeout(resolve, ms));
 	}
+	
 
 	
 	React.useEffect(() => {
@@ -66,7 +74,7 @@ function Quiz() {
 			const nextQuestion = currentQuestion + 1;
 			if(nextQuestion < questions.length){
 				setCurrentQuestion(nextQuestion);
-				setCounter(counter + 5);
+				setCounter(counter + 10);
 			}
 			else{
 				setShowScore(true);
@@ -87,13 +95,14 @@ function Quiz() {
 		if(isCorrect){
 			setScore(score + 1);
 			setPP(PP + 1);
-			setCounter(5);
+			setCounter(10);
 		}
 		
 		const nextQuestion = currentQuestion + 1;
+		
 		if(nextQuestion < questions.length){
 			setCurrentQuestion(nextQuestion);
-			setCounter(5);
+			setCounter(10);
 		}
 		else{
 			setShowScore(true);
@@ -101,10 +110,15 @@ function Quiz() {
 		}
 		//setCounter(5);
 	};
-	
-	console.log(questions[currentQuestion]);
+	var nameText = document.getElementById("name");
+	console.log(nameText);
 	return (
 		<div className='app'>
+			{/* <div style={{flexDirection: 'column', display: 'flex'}}>
+				<input placeholder="username" onChange={e=> setName(e.target.value)}/>
+			<button onClick={() => handleInput()}>Input</button> */}
+
+			{/* </div> */}
 			<div className='PPcounter'><p> Current PP: {PP}</p></div>
 	  		<div className='timer-text'>Time Left {counter}</div>
 			{showScore ? (

@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
+import './index.css';
+// import './intro.css';
 import App from './App';
 import Quiz from "./Quiz";
 import reportWebVitals from './reportWebVitals';
 import { Link } from 'react-router-dom';
 import Landing from './Landing';
 import Button from './Button';
+import UserInput from './UserInput'
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Quiz /> */}
+    <Quiz />
     {/* <App /> */}
-    <Landing />
-    <Button />
+   {/* <Landing /> */}
+    {/* <Button /> 
+    <UserInput /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

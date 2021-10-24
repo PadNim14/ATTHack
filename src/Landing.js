@@ -28,10 +28,10 @@ class Landing extends React.Component {
           <br />
           <p>by Vaibhava, Sidd, Ishaan, Nimal</p>
           <br />
-           <form action="www.google.com">
+           {/* <form action="www.google.com">
             <input type="submit" defaultValue="Press" />
-          </form>
-          <button onclick="www.google.com">Let's go</button> 
+          </form> */}
+          
         </div>
         <div className="area">
           <ul className="circles">
@@ -47,6 +47,7 @@ class Landing extends React.Component {
             <li />
           </ul>
         </div>
+        <button onclick="window.location.href='www.google.com'">Let's go</button> 
       </div>
     );
   }
