@@ -52,7 +52,7 @@ function Quiz() {
 	};
 	// <input onChange={event => setTitle(event.target.value)} />
 	const [score, setScore] = useState(0);
-	const [counter, setCounter] = React.useState(10);
+	const [counter, setCounter] = React.useState(4);
 	const id = React.useRef(null);
 	const [PP, setPP] = useState(0);
 
@@ -74,7 +74,7 @@ function Quiz() {
 			const nextQuestion = currentQuestion + 1;
 			if(nextQuestion < questions.length){
 				setCurrentQuestion(nextQuestion);
-				setCounter(counter + 10);
+				setCounter(counter + 4);
 			}
 			else{
 				setShowScore(true);
@@ -95,14 +95,14 @@ function Quiz() {
 		if(isCorrect){
 			setScore(score + 1);
 			setPP(PP + 1);
-			setCounter(10);
+			setCounter(4);
 		}
 		
 		const nextQuestion = currentQuestion + 1;
 		
 		if(nextQuestion < questions.length){
 			setCurrentQuestion(nextQuestion);
-			setCounter(10);
+			setCounter(4);
 		}
 		else{
 			setShowScore(true);
